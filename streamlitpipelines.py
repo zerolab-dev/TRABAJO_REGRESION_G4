@@ -50,7 +50,7 @@ pct_acum_08 = st.sidebar.number_input("**Ejec acum Ago(%) (Min=0, Max=1)**", min
 var_pct_08 = pct_acum_08 - pct_acum_07
 var_pct_07 = pct_acum_07 - pct_acum_06
 var_pct_06 = pct_acum_06 - pct_acum_05
-ratio_pia_pim = mto_pia/mto_pim
+ratio_pia_pim = mto_pia / mto_pim if mto_pim != 0 else 0
 
 # Función para resetear las entradas
 def reset_inputs():
