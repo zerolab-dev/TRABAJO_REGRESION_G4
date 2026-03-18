@@ -92,9 +92,12 @@ select_categoria_gasto = st.sidebar.selectbox("Selecciona Categoria", ["GASTOS C
 # Calculo de las variables del modelo
 pct_acum_08 = pct_acum_07 = var_pct_08 = 0.0
 
-pct_acum_08 = (mto_dev_01_06 + mto_dev_07 + mto_dev_08) / mto_pim
-pct_acum_07 = (mto_dev_01_06 + mto_dev_07) / mto_pim
-var_pct_08 = pct_acum_08 - pct_acum_07
+if mto_pim > 0:
+    pct_acum_08 = (mto_dev_01_06 + mto_dev_07 + mto_dev_08) / mto_pim
+    pct_acum_07 = (mto_dev_01_06 + mto_dev_07) / mto_pim
+    var_pct_08 = pct_acum_08 - pct_acum_07
+else:
+    ppct_acum_08 = pct_acum_07 = var_pct_08 = 0.0
 
 # Función para resetear las entradas
 def reset_inputs():
