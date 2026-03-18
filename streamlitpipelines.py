@@ -28,16 +28,16 @@ st.markdown("##### Si colocas un valor negativo, aparecerá un error y no podrá
 st.sidebar.header("Campos a Evaluar")
 
 # Entrada del usuario para monto de PIM
-mto_pim = st.sidebar.number_input("**Monto PIM (Min=0, Max=xxxx)**", min_value=0.0, value=float(mto_pim))
+mto_pim = st.sidebar.number_input("**Monto PIM (Min=0)**", min_value=0.0, value=float(mto_pim))
 
 # Entrada del usuario para monto devengado acumulado al primer semestre
-mto_dev_01_06 = st.sidebar.number_input("**Monto devengado al 1er Semestre (Min=0, Max=xxxx)**", min_value=0.0, value=float(mto_dev_01_06))
+mto_dev_01_06 = st.sidebar.number_input("**Monto devengado al 1er Semestre (Min=0)**", min_value=0.0, value=float(mto_dev_01_06))
 
 # Entrada del usuario para monto devengado en el mes de julio
-mto_dev_07 = st.sidebar.number_input("**Monto devengado en Julio (Min=0, Max=xxxx)**", min_value=0.0, value=float(mto_dev_07))
+mto_dev_07 = st.sidebar.number_input("**Monto devengado en Julio (Min=0)**", min_value=0.0, value=float(mto_dev_07))
 
 # Entrada del usuario para monto devengado en el mes de agosto
-mto_dev_08 = st.sidebar.number_input("**Monto devengado en Agosto (Min=0, Max=xxxx)**", min_value=0.0, value=float(mto_dev_08))
+mto_dev_08 = st.sidebar.number_input("**Monto devengado en Agosto (Min=0)**", min_value=0.0, value=float(mto_dev_08))
 
 # Entrada del usuario para el nombre del departamento meta
 st.sidebar.markdown("<h1 style='font-size: 24px;'>Región de ejecución</h1>", unsafe_allow_html=True)
