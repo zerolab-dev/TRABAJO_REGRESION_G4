@@ -127,7 +127,7 @@ if st.sidebar.button("Predecir"):
         target = regressor.predict(obs)
 
         # Mostrar la predicción con un tamaño de fuente grande usando markdown
-        st.markdown(f'<p style="font-size: 40px; color: green;">Al mes de setiembre se predice ejecutar el ${target[0]:.2f}% del PIM</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="font-size: 40px; color: green;">Al mes de setiembre se predice ejecutar el {target[0]*100:.2f}% del PIM</p>', unsafe_allow_html=True)
 
     else:
         st.warning("Rellene todos los espacios en blanco")
