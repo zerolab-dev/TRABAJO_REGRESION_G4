@@ -135,7 +135,7 @@ if st.sidebar.button("Predecir"):
         #Gráfico visual de comparación PIM vs Predicción
         grafico = pd.DataFrame({
             "Monto": [mto_pim, target[0]*mto_pim]
-        }, index=["PIM", "Predicción Setiembre"])
+        }, index=["PIM", "Predicción"])
         st.write("Gráfico de comparación PIM vs Predicción de ejecución acumulada a Setiembre:")
         st.bar_chart(grafico)
 
