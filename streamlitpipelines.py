@@ -177,6 +177,4 @@ if st.sidebar.button("Predecir"):
         st.warning("Rellene todos los espacios en blanco")
 
 # Colocar el botón "Resetear" debajo del botón "Predecir"
-if st.sidebar.button("Resetear"):
-    # Resetear inputs
-    reset_inputs()
+st.sidebar.button("Resetear", on_click=reset_inputs)
