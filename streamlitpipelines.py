@@ -27,6 +27,18 @@ if "departamento_meta" not in st.session_state:
 if "categoria_gasto" not in st.session_state:
     st.session_state.categoria_gasto = "GASTOS DE CAPITAL"
 
+departamentos = [
+"AREQUIPA","CAJAMARCA","CALLAO","CUSCO","HUANCAVELICA",
+"HUANUCO","ICA","JUNIN","LA LIBERTAD","LIMA",
+"LORETO","MADRE DE DIOS","MOQUEGUA","PASCO","PIURA",
+"PUNO","SAN MARTIN","UCAYALI","OTROS_DEPARTAMENTOS"
+]
+
+categorias = [
+"GASTOS CORRIENTES",
+"GASTOS DE CAPITAL"
+]
+
 # Streamlit app
 st.set_page_config(layout="wide")
 st.title("Modelo de Regresión eXtreme Gradient Boosting")
@@ -66,53 +78,26 @@ mto_dev_08 = st.sidebar.number_input(
 
 # Entrada del usuario para el nombre del departamento meta
 st.sidebar.markdown("<h1 style='font-size: 24px;'>Región de ejecución</h1>", unsafe_allow_html=True)
-select_departamento_meta = st.sidebar.selectbox("Selecciona Región", [
-    "AREQUIPA",
-    "CAJAMARCA",
-    "CALLAO",
-    "CUSCO",
-    "HUANCAVELICA",
-    "HUANUCO",
-    "ICA",
-    "JUNIN",
-    "LA LIBERTAD",
-    "LIMA",
-    "LORETO",
-    "MADRE DE DIOS",
-    "MOQUEGUA",
-    "PASCO",
-    "PIURA",
-    "PUNO",
-    "SAN MARTIN",
-    "UCAYALI",
-    "OTROS_DEPARTAMENTOS"
-    ], key=[
-        "04.AREQUIPA",
-        "06.CAJAMARCA",
-        "07.PROVINCIA CONSTITUCIONAL DEL CALLAO",
-        "08.CUSCO",
-        "09.HUANCAVELICA",
-        "10.HUANUCO",
-        "11.ICA",
-        "12.JUNIN",
-        "13.LA LIBERTAD",
-        "15.LIMA",
-        "16.LORETO",
-        "17.MADRE DE DIOS",
-        "18.MOQUEGUA",
-        "19.PASCO",
-        "20.PIURA",
-        "21.PUNO",
-        "22.SAN MARTIN",
-        "25.UCAYALI",
-        "OTROS_DEPARTAMENTOS"
-    ])
+if "departamento_meta" not in st.session_state:
+    st.session_state.departamento_meta = "LIMA"
 
+select_departamento_meta = st.sidebar.selectbox(
+    "Selecciona Región",
+    departamentos,
+    key="departamento_meta"
+)
 
 # Entrada del usuario para el nombre de la categoria de gasto
 st.sidebar.markdown("<h1 style='font-size: 24px;'>Categoria de gasto</h1>", unsafe_allow_html=True)
-select_categoria_gasto = st.sidebar.selectbox("Selecciona Categoria", ["GASTOS CORRIENTES","GASTOS DE CAPITAL"], 
-                                              key=["5.GASTOS CORRIENTES","6.GASTOS DE CAPITAL"])
+if "categoria_gasto" not in st.session_state:
+    st.session_state.categoria_gasto = "GASTOS DE CAPITAL"
+
+select_categoria_gasto = st.sidebar.selectbox(
+    "Selecciona Categoria",
+    categorias,
+    key="categoria_gasto"
+)
+
 # Calculo de las variables del modelo
 pct_acum_08 = pct_acum_07 = var_pct_08 = 0.0
 
@@ -125,12 +110,12 @@ else:
 
 # Función para resetear las entradas
 def reset_inputs():
-    st.session_state.mto_pim = 0.0
-    st.session_state.mto_dev_01_06 = 0.0
-    st.session_state.mto_dev_07 = 0.0
-    st.session_state.mto_dev_08 = 0.0
-    st.session_state.departamento_meta = "LIMA"
-    st.session_state.categoria_gasto = "GASTOS DE CAPITAL"
+    st.session_state["mto_pim"] = 0.0
+    st.session_state["mto_dev_01_06"] = 0.0
+    st.session_state["mto_dev_07"] = 0.0
+    st.session_state["mto_dev_08"] = 0.0
+    st.session_state["departamento_meta"] = "LIMA"
+    st.session_state["categoria_gasto"] = "GASTOS DE CAPITAL"
 
 # Botón para predecir
 if st.sidebar.button("Predecir"):
