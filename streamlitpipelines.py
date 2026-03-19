@@ -14,6 +14,7 @@ select_departamento_meta = "15.LIMA"
 select_categoria_gasto = "6.GASTOS DE CAPITAL"
 
 # Streamlit app
+st.set_page_config(layout="wide")
 st.title("Modelo de Regresión eXtreme Gradient Boosting")
 st.markdown("##### Si colocas un valor negativo, aparecerá un error y no podrás completar otros campos. La predicción será incorrecta.")
 
