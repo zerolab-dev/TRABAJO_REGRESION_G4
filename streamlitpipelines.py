@@ -131,6 +131,11 @@ if st.sidebar.button("Predecir"):
         # Predecir usando el modelo
         target = regressor.predict(obs)
 
+        #Gráfico visual de comparación PIM vs Predicción
+        grafico = pd.DataFrame({
+            "Monto": [mto_pim, target[0]*mto_pim]
+        }, index=["PIM", "Predicción Setiembre"])
+        
         # Mostrar la predicción con un tamaño de fuente grande usando markdown
         st.markdown(f'<p style="font-size: 40px; color: green;">Al mes de setiembre se predice ejecutar S/.{target[0]*mto_pim:.2f} que representa el {target[0]*100:.2f}% del PIM</p>', unsafe_allow_html=True)
 
